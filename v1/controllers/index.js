@@ -1,13 +1,13 @@
 'use strict'
 
-const adaptersWrapper = require('../adapters')
+const coreWrapper = require('../core')
 const healthCheckController = require('./health-check-controller')
 const config = require('../../config')
 
-const adapters = adaptersWrapper({
+const core = coreWrapper({
   config,
 })
 
 module.exports = {
-  healthCheck: healthCheckController(adapters)
+  healthCheck: healthCheckController(core)
 }

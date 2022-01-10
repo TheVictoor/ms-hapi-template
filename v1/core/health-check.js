@@ -1,6 +1,6 @@
 'use strict'
 
-const someFeatureWrapper = ({
+const featureWrapper = ({
   config
 }) => {
   const get = async ({
@@ -18,6 +18,7 @@ const someFeatureWrapper = ({
       })
     } catch (error) {
       return onError({
+        // could be used Boom library 
         statusCode: error.statusCode || 500,
         data: {
           code: 'internal-server-error',
@@ -32,4 +33,4 @@ const someFeatureWrapper = ({
   }
 }
 
-module.exports = someFeatureWrapper
+module.exports = featureWrapper

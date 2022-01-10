@@ -1,7 +1,7 @@
 'use strict'
 
-module.exports = (adapters) => ({
-  get: (request, res) => adapters.healthCheck.get({
+module.exports = (core) => ({
+  get: (request, res) => core.healthCheck.get({
     payload: {
       ...request.params
     },
