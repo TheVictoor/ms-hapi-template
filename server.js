@@ -5,11 +5,11 @@ const Inert = require('@hapi/inert');
 const Vision = require('@hapi/vision');
 const HapiSwagger = require('hapi-swagger');
 const config = require('./config');
-const routes = require('./v1/routes');
+const routes = require('./src/v1/routes');
 
 const init = async () => {
   const server = Hapi.server({
-    port: config.app.port || 3000,
+    port: 3000,
     routes: {
       cors: true
     }

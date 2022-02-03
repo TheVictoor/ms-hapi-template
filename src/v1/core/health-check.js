@@ -5,7 +5,6 @@ const featureWrapper = ({
 }) => {
   const get = async ({
     payload,
-    headers,
     onSuccess,
     onError
   }) => {

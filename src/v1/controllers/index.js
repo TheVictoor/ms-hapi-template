@@ -1,7 +1,10 @@
 'use strict'
 
 const coreWrapper = require('../core')
+
 const healthCheckController = require('./health-check-controller')
+const userController = require('./user-controller')
+
 const config = require('../../config')
 
 // inject the dependencies inside the core
@@ -12,5 +15,6 @@ const core = coreWrapper({
 })
 
 module.exports = {
-  healthCheck: healthCheckController(core)
+  healthCheck: healthCheckController(core),
+  user: userController(core)
 }

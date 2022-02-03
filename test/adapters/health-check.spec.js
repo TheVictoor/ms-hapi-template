@@ -1,4 +1,4 @@
-const adaptersWrapper = require('../../v1/adapters');
+const coreWrapper = require('../../v1/core');
 
 describe('Smoke test on health-check adapter', () => {
   it('Should inject the dependencies into the adapter and get a reference', () => {
@@ -7,7 +7,7 @@ describe('Smoke test on health-check adapter', () => {
       database: {},
     };
 
-    const adapters = adaptersWrapper(dependencies);
+    const adapters = coreWrapper(dependencies);
 
     expect(adapters).toBeInstanceOf(Object);
     expect(adapters.healthCheck).toBeInstanceOf(Object);
@@ -27,13 +27,13 @@ describe('GET: url/test', () => {
         },
         database: {},
         paylaod: {},
-        headers: {},
+        headers: {}, 
         onSuccess: data => data,
         onError: data => data,
       };
   
-      const adapters = adaptersWrapper(dependencies);
-      const result = await adapters.healthCheck.get(dependencies);
+      const core = coreWrapper(dependencies);
+      const result = await core.healthCheck.get(dependencies);
   
       expect(result.data.message).toBe(`app ms-hapi-template running at 3001`);
     });
@@ -53,7 +53,7 @@ describe('GET: url/test', () => {
         onError: data => data,
       };
   
-      const adapters = adaptersWrapper(dependencies);
+      const adapters = coreWrapper(dependencies);
       const result = await adapters.healthCheck.get(dependencies);
   
       expect(result.data.message).toBe('error unexpected');

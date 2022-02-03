@@ -11,7 +11,7 @@ const routes = [
       tags: ['api'],
       notes: 'HealthCheck API',
       description: 'Check if the api is running',
-      handler: controllers.healthCheck.get
+      handler: controllers.user.get
     }
   },
   // other possible routes configuration
